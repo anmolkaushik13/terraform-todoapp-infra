@@ -12,7 +12,7 @@ permissions:
   
 jobs:
   planning-job:
-    runs-on: self-hosted
+    runs-on: microrunner
     name: first job
     steps:
       - name: Checkout
