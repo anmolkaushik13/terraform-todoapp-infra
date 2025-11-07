@@ -10,6 +10,7 @@ terraform {
     storage_account_name = "microservicstd"
     container_name       = "microcontainer"
     key                  = "dev.tfstate"
+    subscription_id      = "06f4c176-e41e-424a-bfc2-cb4b3a4e5fe5"
   }
 }
 
