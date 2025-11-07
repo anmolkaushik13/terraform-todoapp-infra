@@ -3,8 +3,8 @@ on:
   workflow_dispatch
 jobs:
   planning-job:
-    runs-on: microrunner
+    runs-on: self-hosted
     name: first job
     steps:
-      - name: Print workflow details
-    
+      - name: Checkout
+        uses: actions/checkout@v6-beta
