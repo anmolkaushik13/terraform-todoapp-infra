@@ -1,0 +1,10 @@
+name: Terraform-Infra-Workflow
+on: 
+  workflow_dispatch
+jobs:
+  planning-job:
+    runs-on: microrunner
+    name: first job
+    steps:
+      - name: Print workflow details
+    
