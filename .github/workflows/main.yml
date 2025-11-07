@@ -46,5 +46,34 @@ jobs:
         id: plan
         run: terraform plan -no-color -input=false
         continue-on-error: true
+        
+      # - name: Terraform Apply
+      #   id: apply
+      #   if: ${{ github.ref == 'refs/heads/main' }}  # only apply from main branch
+      #   run: terraform apply -auto-approve tfplan
+
+  Apply-job:
+    runs-on: self-hosted
+    name: apply job
+    needs: planning-job
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          client-id: 'aa0d77e6-8257-4234-adb4-fb17bca1365f'
+          tenant-id: 'e36e2232-cac4-497a-9243-862b9b46221b'
+          subscription-id: '06f4c176-e41e-424a-bfc2-cb4b3a4e5fe5'         
+      
+      - name: Terraform Init
+        id: init
+        run: terraform init -input=false
+        
+      - name: Terraform Apply
+        id: apply
+        # if: ${{ github.ref == 'refs/heads/main' }}
+        run: terraform apply -auto-approve tfplan
       
         
