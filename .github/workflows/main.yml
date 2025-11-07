@@ -1,6 +1,15 @@
 name: Terraform-Infra-Workflow
 on: 
   workflow_dispatch
+
+defaults:
+  run:
+    working-directory: environments/dev
+    
+permissions:
+  id-token: write
+  contents: read
+  
 jobs:
   planning-job:
     runs-on: self-hosted
@@ -8,3 +17,28 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v6-beta
+      - name: Azure login
+        uses: azure/login@v2
+        with:
+          client-id: 'aa0d77e6-8257-4234-adb4-fb17bca1365f'
+          tenant-id: 'e36e2232-cac4-497a-9243-862b9b46221b'
+          subscription-id: '06f4c176-e41e-424a-bfc2-cb4b3a4e5fe5'
+      - name: Terraform fmt
+        id: fmt
+        run: terraform fmt -check
+        continue-on-error: true
+      
+      - name: Terraform Init
+        id: init
+        run: terraform init -input=false
+      
+      - name: Terraform Validate
+        id: validate
+        run: terraform validate -no-color
+      
+      - name: Terraform Plan
+        id: plan
+        run: terraform plan -no-color -input=false
+        continue-on-error: true
+      
+        
