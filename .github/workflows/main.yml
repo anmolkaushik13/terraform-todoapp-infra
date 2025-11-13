@@ -1,6 +1,9 @@
 name: Terraform-Infra-Workflow
 on: 
   workflow_dispatch
+  # push:
+  #   branches:
+  #     - main
 
 defaults:
   run:
