@@ -6,9 +6,9 @@ terraform {
     }
   }
   backend "azurerm" {
-    resource_group_name  = "microservice-rg"
-    storage_account_name = "microservicstd"
-    container_name       = "microcontainer"
+    resource_group_name  = "pipeline-rg"
+    storage_account_name = "akstroge"
+    container_name       = "state"
     key                  = "dev.tfstate"
     subscription_id      = "06f4c176-e41e-424a-bfc2-cb4b3a4e5fe5"
   }
