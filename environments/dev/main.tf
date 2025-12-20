@@ -53,12 +53,24 @@ module "aks" {
   tags       = local.common_tags
 }
 
+module "aks" {
+  depends_on = [module.rg]
+  source     = "../../modules/azurerm_kubernetes_cluster"
+  aks_name   = "aks-dev-todoinmfra-011"
+  location   = "centralindia"
+  rg_name    = "rg-dev-todoapp-011"
+  dns_prefix = "aks-dev-todoapp"
+  vm_size    = "Standard_B2s"
+  tags       = local.common_tags
+}
+
 
 module "pip" {
   source   = "../../modules/azurerm_public_ip"
   pip_name = "pip-dev-todoapp1"
   rg_name  = "rg-dev-todoapp-011"
   location = "centralindia"
-  sku      = "Basic"
+  sku      = "Standard"
   tags     = local.common_tags
 }
+
