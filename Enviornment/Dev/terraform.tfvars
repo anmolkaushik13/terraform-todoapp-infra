@@ -35,6 +35,7 @@ aks_cluster = {
     }
     identity = {
       type = "SystemAssigned"
+    }
   }
 }
 
@@ -66,7 +67,7 @@ sql_servers = {
     server_name                  = "server1"
     name                         = "serverdevmicro"
     resource_group_name          = "rg-dev-micro"
-    location                     =  "eastus2" 
+    location                     = "eastus2"
     version                      = "12.0"
     administrator_login          = "sqladminuser"
     administrator_login_password = "P@ssw0rd1234!"
@@ -81,13 +82,13 @@ sql_servers = {
 
 sql_database = {
   "db1" = {
-    name         = "database-dev-micro"
-    collation    = "SQL_Latin1_General_CP1_CI_AS"
-    license_type = "LicenseIncluded"
-    max_size_gb  = 2
-    sku_name     = "S0"
-    enclave_type = "VBS"
-     server_name         = "serverdevmicro"
+    name                = "database-dev-micro"
+    collation           = "SQL_Latin1_General_CP1_CI_AS"
+    license_type        = "LicenseIncluded"
+    max_size_gb         = 2
+    sku_name            = "S0"
+    enclave_type        = "VBS"
+    server_name         = "serverdevmicro"
     resource_group_name = "rg-dev-micro"
   }
 }
@@ -103,5 +104,4 @@ keyvault = {
     purge_protection_enabled    = false
     sku_name                    = "standard"
   }
-
 }
