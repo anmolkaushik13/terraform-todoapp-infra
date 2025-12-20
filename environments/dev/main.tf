@@ -10,7 +10,7 @@ locals {
 module "rg" {
   source      = "../../modules/azurerm_resource_group"
   rg_name     = "rg-dev-todoapp-011"
-  rg_location = "centralindia"
+  rg_location = "WestEurope"
   rg_tags     = local.common_tags
 }
 
@@ -19,7 +19,7 @@ module "acr" {
   source     = "../../modules/azurerm_container_registry"
   acr_name   = "acrdevtodoapp011"
   rg_name    = "rg-dev-todoapp-011"
-  location   = "centralindia"
+  location   = "WestEurope"
   tags       = local.common_tags
 }
 
@@ -28,7 +28,7 @@ module "sql_server" {
   source          = "../../modules/azurerm_sql_server"
   sql_server_name = "sql-dev-todoapp-011"
   rg_name         = "rg-dev-todoapp-011"
-  location        = "centralindia"
+  location        = "WestEurope"
   admin_username  = "devopsadmin"
   admin_password  = "P@ssw01rd@123"
   tags            = local.common_tags
@@ -47,7 +47,7 @@ module "aks" {
   depends_on = [module.rg]
   source     = "../../modules/azurerm_kubernetes_cluster"
   aks_name   = "aks-dev-todoinmfra-011"
-  location   = "centralindia"
+  location   = "WestEurope"
   rg_name    = "rg-dev-todoapp-011"
   dns_prefix = "aks-dev-todoapp"
   tags       = local.common_tags
@@ -57,7 +57,7 @@ module "aks" {
   depends_on = [module.rg]
   source     = "../../modules/azurerm_kubernetes_cluster"
   aks_name   = "aks-dev-todoinmfra-011"
-  location   = "centralindia"
+  location   = "WestEurope"
   rg_name    = "rg-dev-todoapp-011"
   dns_prefix = "aks-dev-todoapp"
   vm_size    = "standard_b16als_v2"
@@ -69,7 +69,7 @@ module "pip" {
   source   = "../../modules/azurerm_public_ip"
   pip_name = "pip-dev-todoapp1"
   rg_name  = "rg-dev-todoapp-011"
-  location = "centralindia"
+  location = "WestEurope"
   sku      = "Standard"
   tags     = local.common_tags
 }
