@@ -5,15 +5,15 @@ terraform {
       version = "4.49.0"
     }
   }
-backend "azurerm" {
-resource_group_name = "dev-rg"
-storage_account_name = "todotv"
-container_name = "tttt"
-key = "terraform.tfstate"
-}
+  backend "azurerm" {
+    resource_group_name = "microservice-rg"
+    storage_account_name = "microservicstd"
+    container_name = "microcontainer"
+    key = "terraform.tfstate"
+  }
 }
 
 provider "azurerm" {
   features {}
-  subscription_id = "06f4c176-e41e-424a-bfc2-cb4b3a4e5fe5"
+  subscription_id = "de1c1815-4f90-412b-9551-d55f0de9407d"
 }
