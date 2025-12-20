@@ -31,7 +31,7 @@ aks_cluster = {
     default_node_pool = {
       name       = "agentpool43"
       node_count = 2
-      vm_size    = "Standard_B2s"
+      vm_size    = "Standard_DC2s_v3"
     }
     identity = {
       type = "SystemAssigned"
@@ -67,13 +67,13 @@ sql_servers = {
     server_name                  = "server1"
     name                         = "serverdevmicroservice1211"
     resource_group_name          = "rg-dev-micro"
-    location                     = "eastus2"
+    location                     = "centralindia"     # changed from eastus2
     version                      = "12.0"
     administrator_login          = "sqladminuser"
     administrator_login_password = "P@ssw0rd1234!"
     minimum_tls_version          = "1.2"
     azuread_administrator = {
-      login_username = "ssaadadmin"
+      login_username = "ssaadadmin"   # must be different from sqladminuser
     }
   }
 }
