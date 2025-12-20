@@ -53,7 +53,7 @@ jobs:
         
   terraform-apply:    
     runs-on: self-hosted
-    if: github.ref == 'refs/heads/main'
+    # if: github.ref == 'refs/heads/main'
     needs: terraform-init-plan
     steps:
     - name: Checkout
