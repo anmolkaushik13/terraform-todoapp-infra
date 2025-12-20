@@ -60,7 +60,7 @@ module "aks" {
   location   = "centralindia"
   rg_name    = "rg-dev-todoapp-011"
   dns_prefix = "aks-dev-todoapp"
-  vm_size    = "Standard_B2s"
+  vm_size    = "standard_b16als_v2"
   tags       = local.common_tags
 }
 
