@@ -88,7 +88,7 @@ sql_database = {
     max_size_gb         = 2
     sku_name            = "S0"
     enclave_type        = "VBS"
-    server_name         = "serverdevmicro"
+    server_name         = "serverdevmicroservice122111-ci"
     resource_group_name = "rg-dev-micro"
   }
 }
