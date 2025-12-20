@@ -31,7 +31,7 @@ aks_cluster = {
     default_node_pool = {
       name       = "agentpool43"
       node_count = 2
-      vm_size    = "Standard_D2_v2"
+      vm_size    = "standard_fx24mds"
     }
     identity = {
       type = "SystemAssigned"
@@ -65,7 +65,7 @@ acr_registries = {
 sql_servers = {
   server1 = {
     server_name                  = "server1"
-    name                         = "serverdevmicro"
+    name                         = "serverdevmicroservice1211"
     resource_group_name          = "rg-dev-micro"
     location                     = "eastus2"
     version                      = "12.0"
