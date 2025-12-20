@@ -1,22 +1,16 @@
 resource_group = {
   "rg-dev1" = {
-    name       = "rg-dev222"
+    name       = "rg-dev-micro"
     location   = "East US"
-    managed_by = "dev-admin"
-  }
-  "rg-test" = {
-    name       = "rg-test"
-    location   = "West US"
-    managed_by = "test-admin"
+    managed_by = "Terraform"
   }
 }
 
 mystorage = {
-
   stg1 = {
-    name                     = "jiocloudstg342"
-    location                 = "east us"
-    resource_group_name      = "rg-dev222"
+    name                     = "stddevmicro"
+    location                 = "East US"
+    resource_group_name      = "rg-dev-micro"
     account_tier             = "Standard"
     account_replication_type = "LRS"
     network_rule = {
@@ -25,29 +19,15 @@ mystorage = {
       ip_rules       = ["122.181.100.122"]
     }
   }
-
-  stg2 = {
-    name                     = "jiocloudstg234"
-    location                 = "east us"
-    resource_group_name      = "rg-dev222"
-    account_tier             = "Standard"
-    account_replication_type = "LRS"
-    # network_rule = {
-    #   default_action = "Deny"
-    #   bypass         = ["AzureServices"]
-    #   ip_rules       = ["122.181.100.122"]
-    # }
-  }
 }
 
 
 aks_cluster = {
   "aks-dev" = {
-
-    name                = "aks-dev165"
+    name                = "aks-dev-micro"
     location            = "East US"
-    resource_group_name = "rg-dev222"
-    dns_prefix          = "aksdev165"
+    resource_group_name = "rg-dev-micro"
+    dns_prefix          = "aksdevmicro"
     default_node_pool = {
       name       = "agentpool43"
       node_count = 2
@@ -55,15 +35,14 @@ aks_cluster = {
     }
     identity = {
       type = "SystemAssigned"
-    }
   }
 }
 
 acr_registries = {
   "acr1" = {
-    name                = "containerRegistry1433"
+    name                = "acrdevmicro"
     location            = "eastus"
-    resource_group_name = "rg-dev222"
+    resource_group_name = "rg-dev-micro"
     sku                 = "Premium"
     type                = "UserAssigned"
     admin_enabled       = true
@@ -85,8 +64,8 @@ acr_registries = {
 sql_servers = {
   server1 = {
     server_name                  = "server1"
-    name                         = "sqlserverdev01"
-    resource_group_name          = "rg-dev222"
+    name                         = "serverdevmicro"
+    resource_group_name          = "rg-dev-micro"
     location                     =  "eastus2" 
     version                      = "12.0"
     administrator_login          = "sqladminuser"
@@ -102,23 +81,23 @@ sql_servers = {
 
 sql_database = {
   "db1" = {
-    name         = "sqldb-dev-01"
+    name         = "database-dev-micro"
     collation    = "SQL_Latin1_General_CP1_CI_AS"
     license_type = "LicenseIncluded"
     max_size_gb  = 2
     sku_name     = "S0"
     enclave_type = "VBS"
-     server_name         = "sqlserverdev01"
-    resource_group_name = "rg-dev222"
+     server_name         = "serverdevmicro"
+    resource_group_name = "rg-dev-micro"
   }
 }
 
 
 keyvault = {
   kv1 = {
-    name                        = "myddkv1"
+    name                        = "keyvaultmicro"
     location                    = "east us"
-    resource_group_name         = "rg-dev222"
+    resource_group_name         = "rg-dev-micro"
     enabled_for_disk_encryption = true
     soft_delete_retention_days  = 7
     purge_protection_enabled    = false
