@@ -50,16 +50,6 @@ module "aks" {
   location   = "East US"
   rg_name    = "rg-dev-todo-infra"
   dns_prefix = "aks-dev-todo-infra"
-  tags       = local.common_tags
-}
-
-module "aks" {
-  depends_on = [module.rg]
-  source     = "../../modules/azurerm_kubernetes_cluster"
-  aks_name   = "aks-dev-todo-infra"
-  location   = "East US"
-  rg_name    = "rg-dev-todo-infra"
-  dns_prefix = "aks-dev-todo-infra"
   vm_size    = "standard_b16als_v2"
   tags       = local.common_tags
 }
