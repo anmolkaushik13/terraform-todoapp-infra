@@ -10,11 +10,11 @@ terraform {
     storage_account_name = "microservicstd"
     container_name       = "microcontainer"
     key                  = "dev.tfstate"
-    subscription_id      = "06f4c176-e41e-424a-bfc2-cb4b3a4e5fe5"
+    subscription_id      = "de1c1815-4f90-412b-9551-d55f0de9407d"
   }
 }
 
 provider "azurerm" {
   features {}
-  subscription_id = "06f4c176-e41e-424a-bfc2-cb4b3a4e5fe5"
+  subscription_id = "de1c1815-4f90-412b-9551-d55f0de9407d"
 }
